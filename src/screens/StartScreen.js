@@ -8,10 +8,11 @@ import Paragraph from '../components/Paragraph'
 export default function StartScreen({ navigation }) {
   return (
     <Background>
-      <Logo />
-      <Header>Set Up</Header>
+      <Header>Dairy Connect</Header>
+      {/* <Logo /> */}
+      {/* <Header>Set up your Account</Header> */}
       <Paragraph>
-        Welcome to Dairy Connect
+        Welcome, Set up your Account
       </Paragraph>
       <Button
         mode="contained"
@@ -19,6 +20,11 @@ export default function StartScreen({ navigation }) {
       >
         Login
       </Button>
+
+      <Paragraph>
+        or
+      </Paragraph>
+
       <Button
         mode="outlined"
         onPress={() => navigation.navigate('RegisterScreen')}
