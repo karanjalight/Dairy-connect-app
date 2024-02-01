@@ -12,8 +12,14 @@ export default function StartScreen({ navigation }) {
       {/* <Logo /> */}
       {/* <Header>Set up your Account</Header> */}
       <Paragraph>
-        Welcome, Set up your Account
+        Welcome to Dairy Connect. Set up your Account
       </Paragraph>
+      <Paragraph>
+        Set up your Account
+      </Paragraph>
+      <Header></Header>
+      <Header></Header>
+      <Header></Header>
       <Button
         mode="contained"
         onPress={() => navigation.navigate('LoginScreen')}
@@ -21,7 +27,7 @@ export default function StartScreen({ navigation }) {
         Login
       </Button>
 
-      <Paragraph>
+      {/* <Paragraph>
         or
       </Paragraph>
 
@@ -30,7 +36,7 @@ export default function StartScreen({ navigation }) {
         onPress={() => navigation.navigate('RegisterScreen')}
       >
         Sign Up
-      </Button>
+      </Button> */}
     </Background>
   )
 }
