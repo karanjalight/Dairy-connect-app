@@ -11,6 +11,11 @@ import { theme } from '../core/theme'
 import { emailValidator } from '../helpers/emailValidator'
 import { passwordValidator } from '../helpers/passwordValidator'
 import { nameValidator } from '../helpers/nameValidator'
+import Paragraph from '../components/Paragraph'
+
+
+
+
 
 export default function RegisterScreen({ navigation }) {
   const [name, setName] = useState({ value: '', error: '' })
@@ -36,8 +41,15 @@ export default function RegisterScreen({ navigation }) {
   return (
     <Background>
       <BackButton goBack={navigation.goBack} />
-      <Logo />
+      {/* <Logo /> */}
+      <Header></Header>
+      <Header></Header>
+      <Header></Header>
+      <Header></Header>
+      <Header></Header>
       <Header>Create Account</Header>
+      <Paragraph>Create account for free</Paragraph>
+
       <TextInput
         label="Name"
         returnKeyType="next"
