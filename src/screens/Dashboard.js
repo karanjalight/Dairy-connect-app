@@ -7,19 +7,33 @@ import Button from '../components/Button'
 import { TouchableOpacity, StyleSheet, View } from 'react-native'
 import { theme } from '../core/theme'
 import { Text } from 'react-native-paper'
+import Navbar from '../components/AppBar'
+import BottomNavigation from '../components/BottomNav'
 
 
 
 export default function Dashboard({ navigation }) {
   return (
     <Background>
-      <View style={styles.row}>
-        <Text>Dairy Connect</Text>
-        
+      <Navbar />
+
+
+      {/* NavBar */}
+      <View style={styles.nav}>
+        <Text>Dairy Connect</Text>        
       </View>
-      <Logo />
+
+
+
+
+      {/* <Logo />
       <Header>Let’s start</Header>
-      <Paragraph>
+      <Paragraph onPress={() =>
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'StartScreen' }],
+          })
+        }>
         Your amazing app starts here. Open you favorite code editor and start
         editing this project.
       </Paragraph>
@@ -33,7 +47,17 @@ export default function Dashboard({ navigation }) {
         }
       >
         Logout
-      </Button>
+      </Button> */}
+
+
+      <Header></Header>
+      <Header></Header>
+      <Header></Header>
+      <Header></Header>
+      <Header></Header>
+      <Header></Header>
+
+      <BottomNavigation />
     </Background>
   )
 }
@@ -45,10 +69,17 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     marginBottom: 24,
   },
-  row: {
+  nav: {
     flexDirection: 'row',
-    width: '100%',    
+    width: '90%',    
     backgroundColor: theme.colors.primary,
+    marginHorizontal: '5%',
+    borderRadius: '1%',
+    height: '20%',
+    marginTop: '10%',
+    padding:'10%',
+    marginBottom: '95%'
+
   },
   forgot: {
     fontSize: 13,
