@@ -12,12 +12,18 @@ import { createStackNavigator } from '@react-navigation/stack'
 // import StartScreen from './src/screens/StartScreen';
 // import LoginScreen from './src/screens/LoginScreen'
 
+import Production from './src/screens/Production'
+
 import {
   StartScreen,
   LoginScreen,
   RegisterScreen,
   ResetPasswordScreen,
   Dashboard,
+  
+  Routes,
+  Stations,
+  Farmers
 } from './src/screens'
 
 
@@ -30,7 +36,7 @@ export default function App() {
     <Provider theme={theme}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Dashboard"
+          initialRouteName="StartScreen"
           screenOptions={{
             headerShown: false,
           }}
@@ -39,6 +45,9 @@ export default function App() {
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
+          <Stack.Screen name="Production" component={Production} />
+          
+          
           <Stack.Screen
             name="ResetPasswordScreen"
             component={ResetPasswordScreen}

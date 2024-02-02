@@ -16,7 +16,7 @@ const FlexDirectionBasics = () => {
   const [flexDirection, setflexDirection] = useState("column");
 };
 
-export default function Dashboard({ navigation }) {
+export default function Production({ navigation }) {
   const [flexDirection, setflexDirection] = useState("column");
   return (
     <Background>
@@ -28,7 +28,7 @@ export default function Dashboard({ navigation }) {
 
       {/* NavBar */}
       <View style={styles.nav}>
-        <Text>Dairy Connect</Text>
+        <Text>Production</Text>
       </View>
 
 
@@ -38,68 +38,7 @@ export default function Dashboard({ navigation }) {
       <Header></Header>
       <Header></Header>      
 
-      <View style={{ margin: 10, flex: 1, height: 40 }}>
-        {/* <Text style={styles.label}>{label}</Text> */}
-        <Text style={styles.label}>
-          Available for you
-        </Text>
-
-        {/* Production */}
-        <View style={styles.row}>
-          <CreateProd
-            mode="outlined"
-            onPress={() =>
-              navigation.reset({
-                index: 0,
-                routes: [{ name: "Production" }],
-              })
-            }
-          >
-            Create Production
-          </CreateProd>
-
-
-          {/* ROutes */}
-          <CreateProd
-            mode="outlined"
-            onPress={() =>
-              navigation.reset({
-                index: 0,
-                routes: [{ name: "StartScreen" }],
-              })
-            }
-          >
-            Routes
-          </CreateProd>
-        </View>
-      </View>
-
-      <View style={{ padding: 10, flex: 1, height: 40, marginTop: 90 }}>
-        <View style={styles.row}>
-          <CreateProd
-            mode="outlined"
-            onPress={() =>
-              navigation.reset({
-                index: 0,
-                routes: [{ name: "StartScreen" }],
-              })
-            }
-          >
-            Stations
-          </CreateProd>
-          <CreateProd
-            mode="outlined"
-            onPress={() =>
-              navigation.reset({
-                index: 0,
-                routes: [{ name: "StartScreen" }],
-              })
-            }
-          >
-            Farmers
-          </CreateProd>
-        </View>
-      </View>
+      
 
       {/* <Button
         mode="outlined"
@@ -200,7 +139,7 @@ const styles = StyleSheet.create({
     border: "2px solid green",
     borderCurve: "20px",
     marginHorizontal: "5%",
-    borderRadius: 6,
+    borderRadius: 2,
     height: "20%",
     marginTop: "10%",
     padding: "10%",
