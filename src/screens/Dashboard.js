@@ -1,268 +1,87 @@
-import React, { useState } from "react";
+import React from "react";
 import Background from "../components/BackgroundDash";
 import Logo from "../components/Logo";
 import Header from "../components/Header";
-import Paragraph from "../components/Paragraph";
 import Button from "../components/Button";
-import { TouchableOpacity, StyleSheet, View } from "react-native";
-import { theme } from "../core/theme";
-import { Text } from "react-native-paper";
-import Navbar from "../components/AppBar";
-import BottomNavigation from "../components/BottomNav";
-import Flex from "../components/Flex";
-import CreateProd from "../components/ProductionButton";
+import Paragraph from "../components/Paragraph";
+import { StyleSheet, View, Text, Image } from "react-native";
 
-const FlexDirectionBasics = () => {
-  const [flexDirection, setflexDirection] = useState("column");
-};
-
-export default function Dashboard({ navigation }) {
-  const [flexDirection, setflexDirection] = useState("column");
+export default function StartScreen({ navigation }) {
   return (
     <Background>
-      <Navbar />
-
-      <View style={styles.top}>
-        <Text>Hi There,</Text>
-      </View>
-
-      {/* NavBar */}
-      <View style={styles.nav}>
-        <Text>Dairy Connect</Text>
-      </View>
-
+      <Header>Dairy Connect</Header>
+      {/* <Logo /> */}
+      {/* <Header>Set up your Account</Header> */}
+      <Paragraph>Welcome to Dairy Connect.</Paragraph>
+      <Paragraph>With you every day!</Paragraph>
 
       <Header></Header>
       <Header></Header>
       <Header></Header>
-      <Header></Header>
-      <Header></Header>      
-
-      <View style={{ margin: 10, flex: 1, height: 40 }}>
-        {/* <Text style={styles.label}>{label}</Text> */}
-        <Text style={styles.label}>
-          Available for you
-        </Text>
-
-        {/* Production */}
-        <View style={styles.row}>
-          <CreateProd
-            mode="outlined"
-            onPress={() =>
-              navigation.reset({
-                index: 0,
-                routes: [{ name: "Production" }],
-              })
-            }
-          >
-            Create Production
-          </CreateProd>
-
-
-          {/* ROutes */}
-          <CreateProd
-            mode="outlined"
-            onPress={() =>
-              navigation.reset({
-                index: 0,
-                routes: [{ name: "StartScreen" }],
-              })
-            }
-          >
-            Routes
-          </CreateProd>
-        </View>
-      </View>
-
-      <View style={{ padding: 10, flex: 1, height: 40, marginTop: 90 }}>
-        <View style={styles.row}>
-          <CreateProd
-            mode="outlined"
-            onPress={() =>
-              navigation.reset({
-                index: 0,
-                routes: [{ name: "StartScreen" }],
-              })
-            }
-          >
-            Stations
-          </CreateProd>
-          <CreateProd
-            mode="outlined"
-            onPress={() =>
-              navigation.reset({
-                index: 0,
-                routes: [{ name: "StartScreen" }],
-              })
-            }
-          >
-            Farmers
-          </CreateProd>
-        </View>
-      </View>
-
-      {/* <Button
-        mode="outlined"
-        onPress={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'StartScreen' }],
-          })
-        }
+      <Button
+        mode="contained"
+        onPress={() => navigation.navigate("LoginScreen")}
       >
-        Logout
-      </Button> */}
+        Create Production
+      </Button>
 
-      {/* <Logo />
-      <Header>Let’s start</Header>
-      <Paragraph onPress={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'StartScreen' }],
-          })
-        }>
-        Your amazing app starts here. Open you favorite code editor and start
-        editing this project.
-      </Paragraph>
+      {/* <Paragraph>
+        or
+      </Paragraph> */}
+
       <Button
         mode="outlined"
-        onPress={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'StartScreen' }],
-          })
-        }
+        onPress={() => navigation.navigate("RegisterScreen")}
       >
-        Logout
-      </Button> */}
-
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>
-
-      {/* <BottomNavigation /> */}
+        Routes
+      </Button>
+      {/* <Image
+        style={{
+          width: 51,
+          height: 51,
+          resizeMode: "contain",
+        }}
+        source={{
+          uri: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==",
+        }}
+      />
+      <Image
+        source={{
+          uri: "https://reactjs.org/logo-og.png",
+          cache: "only-if-cached",
+        }}
+        style={{ width: 40, height: 40 }}
+      /> */}
+      <Button
+        mode="outlined"
+        onPress={() => navigation.navigate("RegisterScreen")}
+      >
+        <Image
+        source={{
+          uri: "https://reactjs.org/logo-og.png",
+          cache: "only-if-cached",
+        }}
+        style={{ width: 40, height: 40 }}
+      />
+        
+        Stations
+        <View>
+          <Text></Text>
+        </View>
+      </Button>
+      <Button
+        mode="outlined"
+        onPress={() => navigation.navigate("RegisterScreen")}
+      >
+        Farmers
+      </Button>
     </Background>
   );
 }
 
-const PreviewLayout = ({
-  label,
-  children,
-  values,
-  selectedValue,
-  setSelectedValue,
-}) => (
-  <View style={{ padding: 10, flex: 1, height: 40 }}>
-    <Text style={styles.label}>{label}</Text>
-    <View style={styles.row}>
-      {values.map((value) => (
-        <TouchableOpacity
-          key={value}
-          onPress={() =>
-            navigation.reset({
-              index: 0,
-              routes: [{ name: "StartScreen" }],
-            })
-          }
-          //   onPress={() => setSelectedValue(value)}
-          style={[styles.button, selectedValue === value && styles.selected]}
-        >
-          <Text
-            style={[
-              styles.buttonLabel,
-              selectedValue === value && styles.selectedLabel,
-            ]}
-          >
-            {value}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-    <View style={[styles.container, { [label]: selectedValue }]}>
-      {children}
-    </View>
-  </View>
-);
-
 const styles = StyleSheet.create({
-  forgotPassword: {
-    width: "100%",
-    alignItems: "flex-end",
-    marginBottom: 24,
-  },
-  nav: {
-    flexDirection: "row",
-    width: "90%",
-    // backgroundColor: theme.colors.primary,
-    border: "2px solid green",
-    borderCurve: "20px",
-    marginHorizontal: "5%",
-    borderRadius: 6,
-    height: "20%",
-    marginTop: "10%",
-    padding: "10%",
-    // marginBottom: '95%'
-  },
-  top: {
-    fontSize: "26px",
-    marginHorizontal: "5%",
-    color: "#666",
-  },
-  forgot: {
-    fontSize: 13,
-    color: theme.colors.secondary,
-  },
-  link: {
-    fontWeight: "bold",
-    color: theme.colors.primary,
-  },
   container: {
     flex: 1,
-    marginTop: 8,
-    backgroundColor: "aliceblue",
-  },
-  box: {
-    width: 50,
-    height: 50,
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 10,
-    marginHorizontal: 10,
-  },
-  button: {
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-    borderRadius: 4,
-    backgroundColor: "lightgreen",
-    alignSelf: "flex-start",
-    marginHorizontal: "1%",
-    marginBottom: 6,
-    minWidth: "48%",
-    textAlign: "center",
-  },
-  selected: {
-    backgroundColor: "green",
-    borderWidth: 0,
-  },
-  buttonLabel: {
-    fontSize: 12,
-    fontWeight: "500",
-    color: "green",
-  },
-  selectedLabel: {
-    color: "white",
-  },
-  label: {
-    textAlign: "left",
-    marginBottom: 10,
-    fontSize: 18,
-    marginHorizontal: 10,
-    color: 'gray',
-
+    padding: 20,
   },
 });
