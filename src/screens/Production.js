@@ -1,207 +1,143 @@
-import React, { useState } from "react";
-import Background from "../components/BackgroundDash";
-import Logo from "../components/Logo";
-import Header from "../components/Header";
-import Paragraph from "../components/Paragraph";
-import Button from "../components/Button";
-import { TouchableOpacity, StyleSheet, View } from "react-native";
-import { theme } from "../core/theme";
-import { Text } from "react-native-paper";
-import Navbar from "../components/AppBar";
-import BottomNavigation from "../components/BottomNav";
-import Flex from "../components/Flex";
-import CreateProd from "../components/ProductionButton";
+import React, { useState } from 'react'
+import { TouchableOpacity, StyleSheet, View } from 'react-native'
+import { Text } from 'react-native-paper'
+import Background from '../components/Background'
+import Logo from '../components/Logo'
+import Header from '../components/Header'
+import Button from '../components/Button'
+import TextInput from '../components/TextInput'
+import BackButton from '../components/BackButton'
+import { theme } from '../core/theme'
+import { emailValidator } from '../helpers/emailValidator'
+import { passwordValidator } from '../helpers/passwordValidator'
+import Paragraph from '../components/Paragraph'
 
-const FlexDirectionBasics = () => {
-  const [flexDirection, setflexDirection] = useState("column");
-};
 
-export default function Production({ navigation }) {
-  const [flexDirection, setflexDirection] = useState("column");
+export default function LoginScreen({ navigation }) {
+  const [email, setEmail] = useState({ value: '', error: '' })
+  const [password, setPassword] = useState({ value: '', error: '' })
+
+  const onLoginPressed = () => {
+    const emailError = emailValidator(email.value)
+    const passwordError = passwordValidator(password.value)
+    if (emailError || passwordError) {
+      setEmail({ ...email, error: emailError })
+      setPassword({ ...password, error: passwordError })
+      return
+    }
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Dashboard' }],
+    })
+  }
+
   return (
     <Background>
-      <Navbar />
-
-      <View style={styles.top}>
-        <Text>Hi There,</Text>
-      </View>
-
-      {/* NavBar */}
-      <View style={styles.nav}>
-        <Text>Production</Text>
-      </View>
-
-
+      
+      
       <Header></Header>
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>      
-
+      {/* <Logo /> */}
       
 
-      {/* <Button
-        mode="outlined"
-        onPress={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'StartScreen' }],
-          })
-        }
-      >
-        Logout
-      </Button> */}
+      <Header>
+      <BackButton goBack={navigation.goBack} />
+        Production</Header>
+      <Paragraph>Create Today's Production</Paragraph>
 
-      {/* <Logo />
-      <Header>Let’s start</Header>
-      <Paragraph onPress={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'StartScreen' }],
-          })
-        }>
-        Your amazing app starts here. Open you favorite code editor and start
-        editing this project.
-      </Paragraph>
-      <Button
-        mode="outlined"
-        onPress={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'StartScreen' }],
-          })
-        }
-      >
-        Logout
-      </Button> */}
+      <TextInput
+        label="Farmer ID"
+        returnKeyType="done"
+        value={password.value}
+        onChangeText={(text) => setPassword({ value: text, error: '' })}
+        error={!!password.error}
+        errorText={password.error}
+        secureTextEntry
+      />
 
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>
-
-      {/* <BottomNavigation /> */}
-    </Background>
-  );
-}
-
-const PreviewLayout = ({
-  label,
-  children,
-  values,
-  selectedValue,
-  setSelectedValue,
-}) => (
-  <View style={{ padding: 10, flex: 1, height: 40 }}>
-    <Text style={styles.label}>{label}</Text>
-    <View style={styles.row}>
-      {values.map((value) => (
+      <TextInput
+        label="Name"
+        returnKeyType="next"
+        value={email.value}
+        onChangeText={(text) => setEmail({ value: text, error: '' })}
+        // error={!!email.error}
+        // errorText={email.error}
+        autoCapitalize="none"
+        autoCompleteType="email"
+        textContentType="emailAddress"
+        keyboardType="email-address"
+      />
+      <TextInput
+        label="Phone Number"
+        returnKeyType="done"
+        value={password.value}
+        onChangeText={(text) => setPassword({ value: text, error: '' })}
+        error={!!password.error}
+        errorText={password.error}
+        secureTextEntry
+      />
+      <TextInput
+        label="Station"
+        returnKeyType="done"
+        value={password.value}
+        onChangeText={(text) => setPassword({ value: text, error: '' })}
+        error={!!password.error}
+        errorText={password.error}
+        secureTextEntry
+      />
+      <TextInput
+        label="Amount Produced"
+        returnKeyType="done"
+        value={password.value}
+        onChangeText={(text) => setPassword({ value: text, error: '' })}
+        error={!!password.error}
+        errorText={password.error}
+        secureTextEntry
+      />
+      <TextInput
+        label="Collection Time"
+        returnKeyType="done"
+        value={password.value}
+        onChangeText={(text) => setPassword({ value: text, error: '' })}
+        error={!!password.error}
+        errorText={password.error}
+        secureTextEntry
+      />
+      <View style={styles.forgotPassword}>
         <TouchableOpacity
-          key={value}
-          onPress={() =>
-            navigation.reset({
-              index: 0,
-              routes: [{ name: "StartScreen" }],
-            })
-          }
-          //   onPress={() => setSelectedValue(value)}
-          style={[styles.button, selectedValue === value && styles.selected]}
+          onPress={() => navigation.navigate('ResetPasswordScreen')}
         >
-          <Text
-            style={[
-              styles.buttonLabel,
-              selectedValue === value && styles.selectedLabel,
-            ]}
-          >
-            {value}
-          </Text>
+          <Text style={styles.forgot}>Forgot your password?</Text>
         </TouchableOpacity>
-      ))}
-    </View>
-    <View style={[styles.container, { [label]: selectedValue }]}>
-      {children}
-    </View>
-  </View>
-);
+      </View>
+      <Button mode="contained" onPress={onLoginPressed}>
+        Create Production
+      </Button>
+      {/* <View style={styles.row}>
+        <Text>Don’t have an account? </Text>
+        <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
+          <Text style={styles.link}>Sign up</Text>
+        </TouchableOpacity>
+      </View> */}
+    </Background>
+  )
+}
 
 const styles = StyleSheet.create({
   forgotPassword: {
-    width: "100%",
-    alignItems: "flex-end",
+    width: '100%',
+    alignItems: 'flex-end',
     marginBottom: 24,
   },
-  nav: {
-    flexDirection: "row",
-    width: "90%",
-    // backgroundColor: theme.colors.primary,
-    border: "2px solid green",
-    borderCurve: "20px",
-    marginHorizontal: "5%",
-    borderRadius: 2,
-    height: "20%",
-    marginTop: "10%",
-    padding: "10%",
-    // marginBottom: '95%'
-  },
-  top: {
-    fontSize: "26px",
-    marginHorizontal: "5%",
-    color: "#666",
+  row: {
+    flexDirection: 'row',
+    marginTop: 4,
   },
   forgot: {
     fontSize: 13,
     color: theme.colors.secondary,
   },
   link: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: theme.colors.primary,
   },
-  container: {
-    flex: 1,
-    marginTop: 8,
-    backgroundColor: "aliceblue",
-  },
-  box: {
-    width: 50,
-    height: 50,
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 10,
-    marginHorizontal: 10,
-  },
-  button: {
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-    borderRadius: 4,
-    backgroundColor: "lightgreen",
-    alignSelf: "flex-start",
-    marginHorizontal: "1%",
-    marginBottom: 6,
-    minWidth: "48%",
-    textAlign: "center",
-  },
-  selected: {
-    backgroundColor: "green",
-    borderWidth: 0,
-  },
-  buttonLabel: {
-    fontSize: 12,
-    fontWeight: "500",
-    color: "green",
-  },
-  selectedLabel: {
-    color: "white",
-  },
-  label: {
-    textAlign: "left",
-    marginBottom: 10,
-    fontSize: 18,
-    marginHorizontal: 10,
-    color: 'gray',
-
-  },
-});
+})

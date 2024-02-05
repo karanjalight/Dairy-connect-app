@@ -33,14 +33,14 @@ export default function LoginScreen({ navigation }) {
 
   return (
     <Background>
-      <BackButton goBack={navigation.goBack} />
+      
       <Header></Header>
       <Header></Header>
       <Header></Header>
       <Header></Header>
       <Header></Header>
       {/* <Logo /> */}
-      <Header>Login</Header>
+      <Header> <BackButton goBack={navigation.goBack} /> Login</Header>
       <Paragraph>Welcome Back</Paragraph>
       <TextInput
         label="Email"
