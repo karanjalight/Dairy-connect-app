@@ -7,7 +7,6 @@ import Paragraph from "../components/Paragraph";
 import { StyleSheet, View, Text, Image } from "react-native";
 import BottomNavigation from "../components/BottomNav";
 
-
 export default function StartScreen({ navigation }) {
   return (
     <Background>
@@ -16,63 +15,131 @@ export default function StartScreen({ navigation }) {
       {/* <Header>Set up your Account</Header> */}
       {/* <BottomNavigation /> */}
 
-      <Image
-        source={{
-          uri: "https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          cache: "only-if-cached",
+      {/* <Paragraph>Hi There</Paragraph> */}
+      <Text
+        style={{
+          fontSize: 18,
+          fontWeight: "bold",
+          marginBottom: 10,
+          marginTop: 10,
+          color: "#666",
         }}
-        style={{ width: 350, height: 200, borderRadius: 8 }}
-      />
+      >
+        {" "}
+        Hi there,
+      </Text>
+      <View
+        style={{
+          // flex: 0.3,
+          // backgroundColor: 'grey',
+          borderWidth: 1,
+          borderColor: "green",
+          borderRadius: 5,
+          padding: 25,
+          marginTop: 10,
+          height: '100'
+        }}
+      >
+        <View style={styles.row}>
+          <View>
+            <Text
+              style={{
+                color: "green",
+                fontSize: 21,
+                fontWeight: "900",
+              }}
+            >
+              Welcome
+            </Text>
+            <Text
+              style={{
+                color: "green",
+                fontSize: 15,
+                fontWeight: "100",
+              }}
+            >
+              Let's track
+            </Text>
+            <Text
+              style={{
+                color: "green",
+                fontSize: 15,
+                fontWeight: "100",
+              }}
+            >
+              Milk Production
+            </Text>
+          </View>
+          <Image
+            source={require("../assets/farmer1.jpg")}
+            style={styles.image}
+          />
+        </View>
+      </View>
 
+      {/* <Header></Header>
+      <Header></Header> */}
       {/* <Header></Header> */}
       <Paragraph></Paragraph>
       <Paragraph>Welcome to Dairy Connect.</Paragraph>
       <Paragraph>With you every day!</Paragraph>
-      <Button
-        mode="contained"
-        onPress={() => navigation.navigate("Production")}
-      >
-        Create Production
-      </Button>
 
-      {/* <Paragraph>
-        or
-      </Paragraph> */}
+      {/* Flex Box 1 */}
+      <View style={styles.rows}>
+        <View style={styles.row}>
+          {/* Create Production */}
+          <Button icon="tab-plus"
+            mode="contained"
+            onPress={() => navigation.navigate("Production")}
+          >
+             
+            Create
+          </Button>
+          
 
-      <Button
-        mode="outlined"
-        onPress={() => navigation.navigate("Routes")}
-      >
-        Routes
-      </Button>
+          {/* Routes */}
+          <Button  icon="routes" mode="outlined" onPress={() => navigation.navigate("Routes")}>
+            Routes
+          </Button>
+        </View>
+      </View>
 
-      <Button
-        mode="outlined"
-        onPress={() => navigation.navigate("Stations")}
-      >
-        {/* <Image
+      {/* Flex Box 2 */}
+      <View style={styles.rows}>
+        <View style={styles.row}>
+          {/* Create Production */}
+          <Button icon="pokemon-go"
+            mode="outlined"
+            onPress={() => navigation.navigate("Stations")}
+          >
+            {/* <Image
           source={{
             uri: "https://reactjs.org/logo-og.png",
             cache: "only-if-cached",
           }}
           style={{ width: 40, height: 40 }}
         /> */}
-        Stations
-        <View>
-          <Text></Text>
-        </View>
-      </Button>
+           <Text> Stations
+            </Text>
+            
+          </Button>
 
-      <Button
-        mode="outlined"
-        onPress={() => navigation.navigate("Farmers")}
-      >
-        Farmers
-      </Button>
-      <Paragraph></Paragraph>
-      <Paragraph></Paragraph>
+          {/* farmers */}
+          <Button icon="account-arrow-right"
+            mode="outlined"
+            onPress={() => navigation.navigate("Farmers")}
+          >
+            <Text>
+            Farmers
+            </Text>
+          </Button>
+        </View>
+      </View>
 
       
+
+      <Paragraph></Paragraph>
+      <Paragraph></Paragraph>
     </Background>
   );
 }
@@ -82,7 +149,35 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
   },
+  image: {
+    width: 190,
+    height: 120,
+    marginBottom: 8,
+  },
+  row: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    padding: 1,
+    alignItems: "center",
+    border: "green",
+    backgroundColor: "white",
+
+    
+    // justifyContent: 'center',
+  },
+
+  rows: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    padding: 1,
+    alignItems: "center",
+    border: "green",
+    backgroundColor: "white",
+
+    alignSelf: "center",
+    alignItems: "center",
+    // justifyContent: 'center',
+  },
 });
-
-
-

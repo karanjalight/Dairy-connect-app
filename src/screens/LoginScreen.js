@@ -41,9 +41,10 @@ export default function LoginScreen({ navigation }) {
       <Header></Header>
       {/* <Logo /> */}
       <Header> <BackButton goBack={navigation.goBack} /> Login</Header>
-      <Paragraph>Welcome Back</Paragraph>
+      {/* <Paragraph>Welcome Back</Paragraph> */}
+      
       <TextInput
-        label="Email"
+        label="Phone Number"
         returnKeyType="next"
         value={email.value}
         onChangeText={(text) => setEmail({ value: text, error: '' })}

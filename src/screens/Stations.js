@@ -3,67 +3,137 @@ import React from "react";
 import Background from "../components/BackgroundList";
 import BackButton from "../components/BackButton";
 import Header from "../components/Header";
+import Button from "../components/ButtonList";
 
 const data = [
-  { id: 1, name: "John", email: "View" },
-  { id: 2, name: "Bob", email: "View" },
-  { id: 3, name: "Mei", email: "View" },
-  { id: 4, name: "Steve", email: "View" },
-  { id: 5, name: "John", email: "View" },
-  { id: 6, name: "Bob", email: "View" },
-  { id: 7, name: "Mei", email: "View" },
-  { id: 8, name: "Steve", email: "View" },
+  {
+    "id": 1,
+    "name": "John Doe Smith",
+    "station": "Station A",
+    "slug": "john-doe-smith"
+  },
+  {
+    "id": 2,
+    "name": "Bob Lee Johnson",
+    "station": "Station B",
+    "slug": "bob-lee-johnson"
+  },
+  {
+    "id": 3,
+    "name": "Mei Chen Wang",
+    "station": "Station C",
+    "slug": "mei-chen-wang"
+  },
+  {
+    "id": 4,
+    "name": "Steve Miller Brown",
+    "station": "Station D",
+    "slug": "steve-miller-brown"
+  },
+  {
+    "id": 5,
+    "name": "John Doe Smith",
+    "station": "Station E",
+    "slug": "john-doe-smith"
+  },
+  {
+    "id": 6,
+    "name": "Bob Lee Johnson",
+    "station": "Station F",
+    "slug": "bob-lee-johnson"
+  },
+  {
+    "id": 7,
+    "name": "Mei Chen Wang",
+    "station": "Station G",
+    "slug": "mei-chen-wang"
+  },
+  {
+    "id": 8,
+    "name": "Steve Miller Brown",
+    "station": "Station H",
+    "slug": "steve-miller-brown"
+  },
+  {
+    "id": 9,
+    "name": "Bob Lee Johnson",
+    "station": "Station I",
+    "slug": "bob-lee-johnson"
+  },
+  {
+    "id": 10,
+    "name": "Mei Chen Wang",
+    "station": "Station J",
+    "slug": "mei-chen-wang"
+  },
+  {
+    "id": 11,
+    "name": "Steve Miller Brown",
+    "station": "Station K",
+    "slug": "steve-miller-brown"
+  }
 ];
-
 
 const TableOne = ({ navigation }) => {
   const item = ({ item }) => (
     <View
-      style={{ flexDirection: "row", padding: 10, backgroundColor: "white" }}
+      style={{ flexDirection: "row", padding: 6, backgroundColor: "white" }}
     >
-      <View style={{ width: 50, backgroundColor: "lightyellow" }}>
+      <View
+        style={{
+          width: 50,
+          alignSelf: "center",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Text
           style={{
-            fontSize: 16,
+            fontSize: 10,
             fontWeight: "bold",
-            textAlign: "left",
-            padding: 10,
+            textAlign: "center",
+            padding: 12,
+            alignItems: "center",
+            alignItems: "center",
+            justifyContent: "center",
+            borderWidth: 1,
+            borderColor: "green",
+            borderRadius: 5,
+            paddingHorizontal: 15,
+            backgroundColor: 'lightgreen'
           }}
         >
           {item.id}
         </Text>
       </View>
-      <View style={{ width: 200, padding: 10 }}>
+      <View style={{ width: 230, padding: 10 }}>
         <Text style={{ fontSize: 16, fontWeight: "bold", textAlign: "left" }}>
-          {item.name}
+        {item.name}
+        </Text>
+        <Text style={{ fontSize: 12, fontWeight: "100", textAlign: "left" }}>
+          {item.station}
         </Text>
       </View>
-      <View style={{ width: 100, backgroundColor: "lavender" }}>
-        <Text
-          style={{
-            fontSize: 16,
-            fontWeight: "bold",
-            textAlign: "center",
-            padding: 10,
-          }}
-        >
-          {item.email}
-        </Text>
+
+      <View style={{}}>
+        <Button icon="transfer-right" mode="outlined"></Button>
       </View>
     </View>
   );
   return (
     <Background>
       <Header></Header>
-      <Header><BackButton goBack={navigation.goBack} /> Stations List</Header>
-      
+      <Header>
+        <BackButton goBack={navigation.goBack} />
+        Stations List
+      </Header>
 
       <View
         style={{
           flex: 1,
           justifyContent: "left",
           alignItems: "left",
-          marginTop: "10%",
+          marginTop: "1%",
           padding: 10,
         }}
       >

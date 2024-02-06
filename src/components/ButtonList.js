@@ -14,28 +14,23 @@ export default function Button({ mode, style, ...props }) {
       labelStyle={styles.text}
       mode={mode}
       {...props}
-    /> 
+    />
   )
 }
 
 const styles = StyleSheet.create({
   button: {
-    width: '48%',
-    marginVertical: 10,
-    paddingVertical: 2,
-    height: 160,
-    paddingTop: 20,
-    paddingBottom: 40,
-    // backgroundColor: 'lightgreen',
-    color: 'green',
-
-    // alignSelf: 'center',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    width: '10%',
+    // marginVertical: 10,
+    // paddingVertical: 2,
+    paddingLeft: 5,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontWeight: 'bold',
-    fontSize: 20,
-    // lineHeight: 6,
+    fontSize: 15,
+    lineHeight: 26,
   },
 })

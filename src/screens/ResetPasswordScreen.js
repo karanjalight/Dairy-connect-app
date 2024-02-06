@@ -21,14 +21,16 @@ export default function ResetPasswordScreen({ navigation }) {
 
   return (
     <Background>
-      <BackButton goBack={navigation.goBack} />
+     
       {/* <Logo /> */}
       <Header></Header>
       <Header></Header>
       <Header></Header>
-      <Header>Restore Password</Header>
+      <Header></Header>
+      <Header></Header>
+      <Header>  <BackButton goBack={navigation.goBack} /> Restore Password</Header>
       <TextInput
-        label="E-mail address"
+        label="Phone Number"
         returnKeyType="done"
         value={email.value}
         onChangeText={(text) => setEmail({ value: text, error: '' })}
