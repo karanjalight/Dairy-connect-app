@@ -18,8 +18,7 @@ export default function StartScreen({ navigation }) {
         Set up your Account
       </Paragraph>
       <Header></Header>
-      <Header></Header>
-      <Header></Header>
+      
       <Button
         mode="contained"
         onPress={() => navigation.navigate('LoginScreen')}

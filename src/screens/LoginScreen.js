@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { TouchableOpacity, StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-paper'
-import Background from '../components/Background'
+import Background from '../components/BackgroundAuth'
 import Logo from '../components/Logo'
 import Header from '../components/Header'
 import Button from '../components/Button'
@@ -34,14 +34,21 @@ export default function LoginScreen({ navigation }) {
   return (
     <Background>
       
+      {/* <Header></Header>
       <Header></Header>
       <Header></Header>
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>
+      <Header></Header> */}
+      {/* <Header></Header> */}
+      {/* <Header></Header> */}
+      <Paragraph></Paragraph>
       {/* <Logo /> */}
-      <Header> <BackButton goBack={navigation.goBack} /> Login</Header>
+      
+      <Header></Header>
+      <Header></Header>
+      <Header></Header>
+      <Header></Header> 
       {/* <Paragraph>Welcome Back</Paragraph> */}
+      <Header> Login</Header>
       
       <TextInput
         label="Phone Number"
