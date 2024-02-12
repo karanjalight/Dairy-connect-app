@@ -10,7 +10,7 @@ export default function Header(props) {
 const styles = StyleSheet.create({
   header: {
     fontSize: 32,
-    color: theme.colors.primary,
+    color: 'white',
     fontWeight: 'bold',
     paddingVertical: 12,
     textAlign: 'center'

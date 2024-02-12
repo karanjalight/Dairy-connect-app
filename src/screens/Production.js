@@ -35,7 +35,7 @@ export default function LoginScreen({ navigation }) {
     <Background>
       
       
-      <Header></Header>
+      {/* <Header></Header> */}
       {/* <Logo /> */}
       
 

@@ -47,6 +47,9 @@ export default function LoginScreen({ navigation }) {
       <Header></Header>
       <Header></Header>
       <Header></Header> 
+      <Header></Header> 
+      <Header></Header> 
+
       {/* <Paragraph>Welcome Back</Paragraph> */}
       <Header> Login</Header>
       
@@ -81,6 +84,15 @@ export default function LoginScreen({ navigation }) {
       <Button mode="contained" onPress={onLoginPressed}>
         Login
       </Button>
+      <Header></Header>
+      <Header></Header> 
+      <Header></Header> 
+      <Header></Header> 
+      <Header></Header> 
+      <Header></Header> 
+ 
+
+
       {/* <View style={styles.row}>
         <Text>Don’t have an account? </Text>
         <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
