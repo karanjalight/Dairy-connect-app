@@ -9,8 +9,10 @@ export default function Paragraph(props) {
 const styles = StyleSheet.create({
   text: {
     fontSize: 15,
-    lineHeight: 21,
-    textAlign: 'center',
+    lineHeight: 40,
+    textAlign: 'left',
     marginBottom: 12,
+    paddingHorizontal: 40,
+    // marginTop: 40,
   },
 })

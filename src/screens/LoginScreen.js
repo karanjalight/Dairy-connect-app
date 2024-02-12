@@ -1,124 +1,131 @@
-import React, { useState } from 'react'
-import { TouchableOpacity, StyleSheet, View } from 'react-native'
-import { Text } from 'react-native-paper'
-import Background from '../components/BackgroundAuth'
-import Logo from '../components/Logo'
-import Header from '../components/Header'
-import Button from '../components/Button'
-import TextInput from '../components/TextInput'
-import BackButton from '../components/BackButton'
-import { theme } from '../core/theme'
-import { emailValidator } from '../helpers/emailValidator'
-import { passwordValidator } from '../helpers/passwordValidator'
-import Paragraph from '../components/Paragraph'
+import React, { useState } from "react";
+import {
+  TouchableOpacity,
+  StyleSheet,
+  View,
+  ImageBackground,
+} from "react-native";
+import { Text } from "react-native-paper";
+import Background from "../components/BackgroundAuth";
+import Logo from "../components/Logo";
+import Header from "../components/Header";
+import Button from "../components/Button";
+import TextInput from "../components/TextInput";
+import BackButton from "../components/BackButton";
+import { theme } from "../core/theme";
+import { emailValidator } from "../helpers/emailValidator";
+import { passwordValidator } from "../helpers/passwordValidator";
+import Paragraph from "../components/Paragraph";
+import { FontAwesome5 } from "@expo/vector-icons";
 
+const image = { uri: "https://legacy.reactjs.org/logo-og.png" };
 
 export default function LoginScreen({ navigation }) {
-  const [email, setEmail] = useState({ value: '', error: '' })
-  const [password, setPassword] = useState({ value: '', error: '' })
+  const [email, setEmail] = useState({ value: "", error: "" });
+  const [password, setPassword] = useState({ value: "", error: "" });
 
   const onLoginPressed = () => {
-    const emailError = emailValidator(email.value)
-    const passwordError = passwordValidator(password.value)
+    const emailError = emailValidator(email.value);
+    const passwordError = passwordValidator(password.value);
     if (emailError || passwordError) {
-      setEmail({ ...email, error: emailError })
-      setPassword({ ...password, error: passwordError })
-      return
+      setEmail({ ...email, error: emailError });
+      setPassword({ ...password, error: passwordError });
+      return;
     }
     navigation.reset({
       index: 0,
-      routes: [{ name: 'Dashboard' }],
-    })
-  }
+      routes: [{ name: "Dashboard" }],
+    });
+  };
 
   return (
     <Background>
-      
-      {/* <Header></Header>
-      <Header></Header>
-      <Header></Header>
-      <Header></Header> */}
-      {/* <Header></Header> */}
-      {/* <Header></Header> */}
-      <Paragraph></Paragraph>
-      {/* <Logo /> */}
-      
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>
-      <Header></Header> 
-      <Header></Header> 
-      <Header></Header> 
-
       {/* <Paragraph>Welcome Back</Paragraph> */}
       <Header> Login</Header>
-      
-      <TextInput
-        label="Phone Number"
-        returnKeyType="next"
-        value={email.value}
-        onChangeText={(text) => setEmail({ value: text, error: '' })}
-        // error={!!email.error}
-        // errorText={email.error}
-        autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
-      />
-      <TextInput
-        label="Password"
-        returnKeyType="done"
-        value={password.value}
-        onChangeText={(text) => setPassword({ value: text, error: '' })}
-        error={!!password.error}
-        errorText={password.error}
-        secureTextEntry
-      />
-      <View style={styles.forgotPassword}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('ResetPasswordScreen')}
-        >
-          <Text style={styles.forgot}>Forgot your password?</Text>
-        </TouchableOpacity>
-      </View>
-      <Button mode="contained" onPress={onLoginPressed}>
-        Login
-      </Button>
-      <Header></Header>
-      <Header></Header> 
-      <Header></Header> 
-      <Header></Header> 
-      <Header></Header> 
-      <Header></Header> 
- 
 
+      <Paragraph style={styles.marginTop}>
+        <FontAwesome5 name="unlock" size={24} color="green" />
+        {/* <Text> Login</Text> */}
+      </Paragraph>
 
-      {/* <View style={styles.row}>
+      <Paragraph>        
+        <Text> Login</Text>
+      </Paragraph>
+
+      <View style={styles.container}>
+        <TextInput
+          label="Phone Number"
+          returnKeyType="next"
+          value={email.value}
+          onChangeText={(text) => setEmail({ value: text, error: "" })}
+          // error={!!email.error}
+          // errorText={email.error}
+          autoCapitalize="none"
+          autoCompleteType="email"
+          textContentType="emailAddress"
+          keyboardType="email-address"
+        />
+        <TextInput
+          label="Password"
+          returnKeyType="done"
+          value={password.value}
+          onChangeText={(text) => setPassword({ value: text, error: "" })}
+          error={!!password.error}
+          errorText={password.error}
+          secureTextEntry
+        />
+        <View style={styles.forgotPassword}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("ResetPasswordScreen")}
+          >
+            <Text style={styles.forgot}>Forgot your password?</Text>
+          </TouchableOpacity>
+        </View>
+        <Button mode="contained" onPress={onLoginPressed}>
+          Login
+        </Button>
+
+        {/* <View style={styles.row}>
         <Text>Don’t have an account? </Text>
         <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
           <Text style={styles.link}>Sign up</Text>
         </TouchableOpacity>
       </View> */}
+      </View>
     </Background>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   forgotPassword: {
-    width: '100%',
-    alignItems: 'flex-end',
+    width: "100%",
+    alignItems: "flex-start",
     marginBottom: 24,
+    color: "green",
   },
   row: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginTop: 4,
   },
   forgot: {
     fontSize: 13,
-    color: theme.colors.secondary,
-  },
-  link: {
-    fontWeight: 'bold',
     color: theme.colors.primary,
   },
-})
+  link: {
+    fontWeight: "bold",
+    color: theme.colors.primary,
+  },
+  container: {
+    flex: 1,
+    padding: 20,
+    width: "100%",
+    maxWidth: 340,
+    alignSelf: "center",
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
+  marginTop: {
+    marginTop : 40,
+    paddingHorizontal: 40,
+  }
+});
