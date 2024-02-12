@@ -8,34 +8,29 @@ export default function Button({ mode, style, ...props }) {
     <PaperButton
       style={[
         styles.button,
-        // mode === 'outlined' && { backgroundColor: theme.colors.surface },
-        // style,
+        mode === 'outlined' && { backgroundColor: 'white' },
+        style,
       ]}
       labelStyle={styles.text}
       mode={mode}
       {...props}
-    /> 
+    />
   )
 }
 
 const styles = StyleSheet.create({
   button: {
-    width: '48%',
-    marginVertical: 10,
+    width: '66%',
+    // marginVertical: 10,
     // paddingVertical: 2,
-    height: 120,
-    paddingHorizontal: 10,
-    // paddingBottom: 40,
-    // // backgroundColor: 'lightgreen',
-    // color: 'green',
-
-    alignSelf: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginRight: 10,
+    marginTop: 20,
   },
   text: {
     fontWeight: 'bold',
-    fontSize: 20,
-    // lineHeight: 6,
+    fontSize: 16,
+    // lineHeight: 26,
+    color: theme.colors.secondary
   },
+  
 })

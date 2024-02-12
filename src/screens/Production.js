@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { TouchableOpacity, StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-paper'
-import Background from '../components/Background'
+import Background from '../components/BackgroundDash'
 import Logo from '../components/Logo'
-import Header from '../components/Header'
+import Header from '../components/ProductionHeader'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
@@ -41,9 +41,10 @@ export default function LoginScreen({ navigation }) {
 
       <Header>
       <BackButton goBack={navigation.goBack} />
-        Production</Header>
-      <Paragraph>Create Today's Production</Paragraph>
+        Create Production</Header>
+      {/* <Paragraph>Create Today's Production</Paragraph> */}
 
+      <View style={styles.container}>
       <TextInput
         label="Farmer ID"
         returnKeyType="done"
@@ -102,16 +103,25 @@ export default function LoginScreen({ navigation }) {
         errorText={password.error}
         secureTextEntry
       />
-      <View style={styles.forgotPassword}>
+      {/* <View style={styles.forgotPassword}>
         <TouchableOpacity
           onPress={() => navigation.navigate('ResetPasswordScreen')}
         >
           <Text style={styles.forgot}>Forgot your password?</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
       <Button mode="contained" onPress={onLoginPressed}>
         Create Production
       </Button>
+
+      <View style={styles.forgotPassword}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Dashboard')}
+        >
+          <Text style={styles.forgot}>Go back Home</Text>
+        </TouchableOpacity>
+      </View>
+      </View>
       {/* <View style={styles.row}>
         <Text>Don’t have an account? </Text>
         <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
@@ -125,8 +135,10 @@ export default function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
   forgotPassword: {
     width: '100%',
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     marginBottom: 24,
+    textAlign: 'left'
+
   },
   row: {
     flexDirection: 'row',
@@ -135,9 +147,22 @@ const styles = StyleSheet.create({
   forgot: {
     fontSize: 13,
     color: theme.colors.secondary,
+    textAlign: 'left'
+
   },
   link: {
     fontWeight: 'bold',
     color: theme.colors.primary,
   },
+
+  container: {
+    // flex: 1,
+    padding: 10,
+    paddingHorizontal: 20,
+    justifyContent: "space-between",
+  },
+  forgot: {
+    textAlign: 'left',
+    color: 'green'
+  }
 })
