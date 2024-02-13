@@ -2,8 +2,9 @@ import { FlatList, Text, View } from "react-native";
 import React from "react";
 import Background from "../components/BackgroundList";
 import BackButton from "../components/BackButton";
-import Header from "../components/Header";
+import Header from "../components/DashboardHeader";
 import Button from "../components/ButtonList";
+import { theme } from "../core/theme";
 
 const data = [
   {
@@ -98,9 +99,9 @@ const TableOne = ({ navigation }) => {
             justifyContent: "center",
             borderWidth: 1,
             borderColor: "green",
-            borderRadius: 5,
+            borderRadius: 25,
             paddingHorizontal: 15,
-            backgroundColor: 'lightgreen'
+            backgroundColor: theme.colors.gray
           }}
         >
           {item.id}
@@ -122,9 +123,9 @@ const TableOne = ({ navigation }) => {
   );
   return (
     <Background>
-      <Header></Header>
+      {/* <Header></Header> */}
       <Header>
-        <BackButton goBack={navigation.goBack} />
+        {/* <BackButton goBack={navigation.goBack} /> */}
         Stations List
       </Header>
 
