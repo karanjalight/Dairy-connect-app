@@ -108,7 +108,7 @@ const TableOne = ({ navigation }) => {
       >
         <Text
           style={{
-            fontSize: 16,
+            fontSize: 10,
             fontWeight: "bold",
             textAlign: "center",
             padding: 12,

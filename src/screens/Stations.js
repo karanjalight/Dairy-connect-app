@@ -116,8 +116,8 @@ const TableOne = ({ navigation }) => {
         </Text>
       </View>
 
-      <View style={{}}>
-        <Button icon="transfer-right" mode="outlined"></Button>
+      <View style={{ width: 40, padding: 10 }}>
+        <Button  mode="outlined">View</Button>
       </View>
     </View>
   );

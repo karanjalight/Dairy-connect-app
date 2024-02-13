@@ -20,10 +20,10 @@ export default function Button({ mode, style, ...props }) {
 
 const styles = StyleSheet.create({
   button: {
-    width: '10%',
+    width: '40%',
     // marginVertical: 10,
     // paddingVertical: 2,
-    paddingLeft: 5,
+    // paddingLeft: 5,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
